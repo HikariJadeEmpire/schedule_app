@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:schedule_app/Homepage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'DMO Shop',
+        title: 'ShiftLog',
         theme: ThemeData(
           colorScheme: ColorScheme(
             brightness: Brightness.light, 
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
             onPrimary: Color.fromRGBO(28, 38, 40, 1), 
             secondary: Color.fromRGBO(28, 38, 40, 1), 
             onSecondary: Color.fromRGBO(254, 250, 224, 1), 
-            onSecondaryContainer: Color.fromRGBO(28, 38, 40, 0.6),
+            onSecondaryContainer: Color.fromRGBO(28, 38, 40, 0.5),
             error: Color.fromRGBO(159, 184, 184, 1), 
             onError: Color.fromRGBO(28, 38, 40, 1), 
             surface: Color.fromRGBO(255, 255, 255, 1), 
@@ -40,7 +41,14 @@ class MyApp extends StatelessWidget {
             ),
           fontFamily: 'Inconsolata',
         ),
-        home: Placeholder(),
+
+        initialRoute: '/',
+        routes: {
+          '/': (context) => MyHomepage(),
+          '/tests': (context) => Placeholder(),
+        },
+
+        home: MyHomepage(),
       ),
     );
   }
