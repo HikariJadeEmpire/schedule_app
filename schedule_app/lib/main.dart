@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:schedule_app/Homepage.dart';
+import 'variablesPage.dart';
 
 void main() {
   runApp(const MyApp());
-}
-
-class MainProvider extends ChangeNotifier {
-  //// Pass global variables here !!!
 }
 
 class MyApp extends StatelessWidget {
@@ -39,12 +36,11 @@ class MyApp extends StatelessWidget {
             onSurface: Color.fromRGBO(28, 38, 40, 1),
             surfaceTint: Color.fromRGBO(235, 235, 233, 0.2),
             ),
-          fontFamily: 'Inconsolata',
+          fontFamily: 'GoogleSansCode',
         ),
 
-        initialRoute: '/',
+        // initialRoute: '/',
         routes: {
-          '/': (context) => MyHomepage(),
           '/tests': (context) => Placeholder(),
         },
 

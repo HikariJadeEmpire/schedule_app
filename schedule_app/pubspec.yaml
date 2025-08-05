@@ -46,13 +46,20 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Inconsolata
+    - family: GoogleSansCode
       fonts:
-        - asset: assets/fonts/Inconsolata-ExtraLight.ttf
-        - asset: assets/fonts/Inconsolata-Light.ttf
-        - asset: assets/fonts/Inconsolata-Medium.ttf
-        - asset: assets/fonts/Inconsolata-Regular.ttf
-        - asset: assets/fonts/Inconsolata-SemiBold.ttf
+        - asset: assets/fonts/GoogleSansCode-Light.ttf
+        - asset: assets/fonts/GoogleSansCode-LightItalic.ttf
+        - asset: assets/fonts/GoogleSansCode-Regular.ttf
+        - asset: assets/fonts/GoogleSansCode-Italic.ttf
+        - asset: assets/fonts/GoogleSansCode-Medium.ttf
+        - asset: assets/fonts/GoogleSansCode-MediumItalic.ttf
+        - asset: assets/fonts/GoogleSansCode-SemiBold.ttf
+        - asset: assets/fonts/GoogleSansCode-SemiBoldItalic.ttf
+        - asset: assets/fonts/GoogleSansCode-Bold.ttf
+        - asset: assets/fonts/GoogleSansCode-BoldItalic.ttf
+        - asset: assets/fonts/GoogleSansCode-ExtraBold.ttf
+        - asset: assets/fonts/GoogleSansCode-ExtraBoldItalic.ttf
           weight: 700
   #
   # For details regarding fonts from package dependencies,

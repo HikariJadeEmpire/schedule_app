@@ -66,7 +66,32 @@ class _SummaryPagesState extends State<SummaryPages> {
             ),
           ),
         
-          SliverToBoxAdapter(),
+          SliverToBoxAdapter(
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+
+                
+
+              ],
+
+            ),
+          ),
+
+
+          //// For UI experiment
+          
+          SliverList(
+            delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
+              return Container(
+                color: index.isOdd ? Colors.white : Colors.black12,
+                height: 100.0,
+                child: Center(child: Text('$index', textScaler: const TextScaler.linear(5))),
+              );
+            }, childCount: 20),
+          ),
+
+          //// END of UI experiment.
 
           ]
 
