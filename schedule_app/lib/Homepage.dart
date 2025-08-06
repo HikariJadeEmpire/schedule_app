@@ -50,8 +50,9 @@ class _MyHomepageState extends State<MyHomepage> {
 
             getCurrentPage(selectedPage),
 
-            //// Bottom Nav bar
-            
+            ////////////////////////
+            ////// Bottom Nav bar
+            ////////////////////////
             
             Align(
               alignment: Alignment.bottomCenter,
@@ -103,6 +104,10 @@ class _MyHomepageState extends State<MyHomepage> {
                 
               )
             ),
+
+            /////////////////////////////////
+            ////// END of Bottom Nav bar
+            /////////////////////////////////
 
           ]
         ),

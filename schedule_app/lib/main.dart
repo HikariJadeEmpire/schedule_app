@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:schedule_app/Homepage.dart';
+import 'package:schedule_app/homepage.dart';
 import 'variablesPage.dart';
 
 void main() {

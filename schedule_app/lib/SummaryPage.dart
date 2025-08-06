@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:schedule_app/variablesPage.dart';
+import 'package:schedule_app/widgets_page.dart';
+import 'functions.dart';
+
 
 class SummaryPages extends StatefulWidget {
   const SummaryPages({super.key});
@@ -67,14 +72,99 @@ class _SummaryPagesState extends State<SummaryPages> {
           ),
         
           SliverToBoxAdapter(
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
+            child: Row(
               children: [
 
-                
+                Column(
+                  spacing: 8,
+                  children: [
+
+                    SizedBox(
+                      width: 30,
+                      height: 10,
+                    ),
+
+                    Container(
+                      // color: Theme.of(context).colorScheme.onSecondaryContainer,
+                      
+                      height: 190,
+                      width: 30,
+                      margin: EdgeInsets.symmetric(
+                        // vertical: 20,
+                        horizontal: 5,
+                      ),
+                    
+                      child: GridView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                                
+                        itemCount: weekMapper.length,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 7),
+                        itemBuilder: (_, int index) {
+                    
+                          return Container(
+                            margin: EdgeInsets.all(1),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              color: Colors.transparent,
+                            ),
+                    
+                            // height: 4,
+                            // width: 4,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                weekMapper.values.elementAt(index).substring(0, 3),
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.onPrimary,
+                                  fontSize: 9,
+                                ),
+                                ),
+                            ),
+                          );
+                        }
+                      )
+                    ),
+                  ],
+                ),
+
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      
+                      SizedBox(
+                        height: 220,
+                        width: 200,
+                        child: SummaryCalendar(
+                          listOfDates: Provider.of<MainProvider>(context).currentDateGrid,
+                          inspectDay: Provider.of<MainProvider>(context).todayy,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 220,
+                        width: 200,
+                        child: SummaryCalendar(
+                          listOfDates: generateDatesGrid(
+                            DateTime(
+                              Provider.of<MainProvider>(context).todayy.year,
+                              Provider.of<MainProvider>(context).todayy.month + 1,
+                              1
+                              ),
+                          ),
+                          inspectDay: DateTime(
+                              Provider.of<MainProvider>(context).todayy.year,
+                              Provider.of<MainProvider>(context).todayy.month + 1,
+                              1
+                              ),
+                        ),
+                      ),
+                  
+                    ]
+                  ),
+                ),
 
               ],
-
             ),
           ),
 
