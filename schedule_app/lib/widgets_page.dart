@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_app/variablesPage.dart';
 import 'functions.dart';
-import 'package:provider/provider.dart';
 // import 'dart:ui';
 
 class SummaryCalendar extends StatelessWidget {
