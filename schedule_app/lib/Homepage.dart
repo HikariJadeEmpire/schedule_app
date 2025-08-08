@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_app/SummaryPage.dart';
+import 'package:schedule_app/shift_log_page.dart';
 import 'variablesPage.dart';
+import 'package:provider/provider.dart';
 import 'dart:ui';
 
 class MyHomepage extends StatefulWidget {
@@ -16,7 +18,10 @@ class _MyHomepageState extends State<MyHomepage> {
 
   Widget getCurrentPage(numPage) {
     if (numPage == 1) {
-      return Placeholder();
+      return ActionCalendar(
+        listOfDates: Provider.of<MainProvider>(context).currentDateGrid,
+        inspectDay : Provider.of<MainProvider>(context).todayy
+        );
     } else if (numPage == 2) {
       return Placeholder();
     } else {

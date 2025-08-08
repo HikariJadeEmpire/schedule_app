@@ -1,4 +1,4 @@
-
+import 'package:flutter/material.dart';
 
 List<DateTime> generateDatesGrid(DateTime month) {
 
@@ -49,4 +49,57 @@ List<String> getStatusCalendar(List<DateTime> listMonth, DateTime today) {
     }
   }
   return disableDay;
+}
+
+Color getCalendaBoxColr(context, String status) {
+
+  if (status == 'available') {
+    return Theme.of(context).colorScheme.secondary;
+  } else if (status == 'selected') {
+    return Theme.of(context).colorScheme.onSecondaryContainer;
+  } else if (status == 'marked') {
+    return Theme.of(context).colorScheme.secondary;
+  } else if (status == '2marked') {
+    return Theme.of(context).colorScheme.secondary;
+  } else if (status == '3marked') {
+    return Theme.of(context).colorScheme.secondary;
+  } else if (status == 'disable') {
+    return Colors.transparent;
+  } else {
+    return Theme.of(context).colorScheme.onSecondaryContainer;
+  }
+}
+
+String changeStatus(status) {
+  switch (status) {
+    case "available" : {
+      return "selected";
+    }
+    case "selected" : {
+      return "available";
+    }
+    case "marked" : {
+      return "marked-selected";
+    }
+    case "marked-selected" : {
+      return "marked";
+    }
+    case "2marked" : {
+      return "2marked-selected";
+    }
+    case "2marked-selected" : {
+      return "2marked";
+    }
+    case "3marked" : {
+      return "3marked-selected";
+    }
+    case "3marked-selected" : {
+      return "3marked";
+    }
+    default : {
+      return status;
+    }
+
+  }
+  
 }

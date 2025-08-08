@@ -5,11 +5,19 @@ import 'functions.dart';
 class MainProvider extends ChangeNotifier {
   //// Pass global variables here !!!
 
-  final List<DateTime> currentDateGrid = generateDatesGrid(DateTime.now());
   final DateTime todayy = DateTime.now();
+
+  late List<DateTime> currentDateGrid = generateDatesGrid(DateTime.now());
+  late List<String> dayStatus = getStatusCalendar(currentDateGrid, todayy);
+  late DateTime selectedDate;
 
   void updateGrid() {
     if ( currentDateGrid != generateDatesGrid(DateTime.now()) ) {
+
+      // TODO: Make change when users change the month
+
+      currentDateGrid = generateDatesGrid(selectedDate);
+      dayStatus = getStatusCalendar(currentDateGrid, selectedDate);
       notifyListeners();
     }
   }

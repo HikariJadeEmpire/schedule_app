@@ -19,9 +19,9 @@ class _SummaryPagesState extends State<SummaryPages> {
 
         // IndexedStack is helping when we move to another page and then come back, the recent item still remain
 
-        children: [
-          CustomScrollView(
-            slivers : <Widget>[
+      children: [
+        CustomScrollView(
+          slivers : <Widget>[
           
           SliverAppBar(
         
@@ -73,6 +73,7 @@ class _SummaryPagesState extends State<SummaryPages> {
         
           SliverToBoxAdapter(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
 
                 Column(
@@ -128,40 +129,37 @@ class _SummaryPagesState extends State<SummaryPages> {
                   ],
                 ),
 
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    children: [
-                      
-                      SizedBox(
-                        height: 220,
-                        width: 200,
-                        child: SummaryCalendar(
-                          listOfDates: Provider.of<MainProvider>(context).currentDateGrid,
-                          inspectDay: Provider.of<MainProvider>(context).todayy,
-                        ),
+                Row(
+                  children: [
+                    
+                    SizedBox(
+                      height: 220,
+                      width: 170,
+                      child: SummaryCalendar(
+                        listOfDates: Provider.of<MainProvider>(context).currentDateGrid,
+                        inspectDay: Provider.of<MainProvider>(context).todayy,
                       ),
-                      SizedBox(
-                        height: 220,
-                        width: 200,
-                        child: SummaryCalendar(
-                          listOfDates: generateDatesGrid(
-                            DateTime(
-                              Provider.of<MainProvider>(context).todayy.year,
-                              Provider.of<MainProvider>(context).todayy.month + 1,
-                              1
-                              ),
-                          ),
-                          inspectDay: DateTime(
-                              Provider.of<MainProvider>(context).todayy.year,
-                              Provider.of<MainProvider>(context).todayy.month + 1,
-                              1
-                              ),
+                    ),
+                    SizedBox(
+                      height: 220,
+                      width: 170,
+                      child: SummaryCalendar(
+                        listOfDates: generateDatesGrid(
+                          DateTime(
+                            Provider.of<MainProvider>(context).todayy.year,
+                            Provider.of<MainProvider>(context).todayy.month + 1,
+                            1
+                            ),
                         ),
+                        inspectDay: DateTime(
+                            Provider.of<MainProvider>(context).todayy.year,
+                            Provider.of<MainProvider>(context).todayy.month + 1,
+                            1
+                            ),
                       ),
-                  
-                    ]
-                  ),
+                    ),
+                
+                  ]
                 ),
 
               ],

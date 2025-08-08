@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:schedule_app/variablesPage.dart';
 import 'functions.dart';
-// import 'package:provider/provider.dart';
+import 'package:provider/provider.dart';
 // import 'dart:ui';
 
 class SummaryCalendar extends StatelessWidget {
@@ -56,27 +56,21 @@ class SummaryCalendar extends StatelessWidget {
             itemCount: listOfDates.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 7),
             itemBuilder: (_, int index) {
-        
-              // TODO: Use function to show disable/available/1busy/mixedbusy on each day
-    
-              List<String> disableDay = getStatusCalendar(listOfDates, inspectDay);
+
+              final List<String> gridstatus = getStatusCalendar(listOfDates, inspectDay);
         
               return Container(
                 margin: gridSpace,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: disableDay[index] == 'available' ? 
-                  Theme.of(context).colorScheme.secondary
-                  : Colors.transparent,
+                  color: getCalendaBoxColr(context, gridstatus[index]),
                 ),
                         
-                // height: 4,
-                // width: 4,
                 child: Center(
                   child: Text(
                     "${listOfDates[index].day}",
                     style: TextStyle(
-                      color: disableDay[index] == 'available' ?
+                      color: gridstatus[index] != 'disable' ?
                       Theme.of(context).colorScheme.onSecondary
                       : Colors.transparent,
                       fontSize: 9,
